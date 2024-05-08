@@ -65,7 +65,7 @@ export default function CreatePlayerForm({ players, setPlayers }) {
               placeholder="--Name--"
               onChange={(e) => setName(e.target.value)}
             />
-            {(submitedData.name === '') && <span className="required">Required n</span>}
+            {(submitedData.name === '') && <span className="required">Required field</span>}
           </label>
 
 
@@ -77,7 +77,7 @@ export default function CreatePlayerForm({ players, setPlayers }) {
               placeholder="--Breed--"
               onChange={(e) => setBreed(e.target.value)}
             />
-            {(submitedData.breed === '') && <span className="required">Required b</span>}
+            {(submitedData.breed === '') && <span className="required">Required field</span>}
           </label>
 
           <label>Team ID

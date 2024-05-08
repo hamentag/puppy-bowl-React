@@ -9,6 +9,7 @@ export default function AllPlayers() {
   const [error, setError] = useState(null);
   const [searchParam, setSearchParam] = useState("");
   const [numPlayers, setNumPlayers] = useState(0);
+  const [addNewPlayer, setAddNewPlayer] = useState(false)
 
   useEffect(() => {
     async function getAllPlayers() {
@@ -35,7 +36,16 @@ export default function AllPlayers() {
 
   return (
     <div>
-      <CreatePlayerForm players={players} setPlayers={setPlayers} />
+      <div className={addNewPlayer? ' new-player' : ''}>
+        <div className="add-new-player" onClick={()=>{setAddNewPlayer(status=>!status)}}>
+          {addNewPlayer? <div id="cancel"> &times;</div>
+            :  
+            <div>Add new player <span id="arrowDown"> &#9660;</span></div>}
+        </div>
+        {
+          addNewPlayer && <CreatePlayerForm players={players} setPlayers={setPlayers} />
+        }
+      </div>
       <div>
         <label>
           Search:{" "}

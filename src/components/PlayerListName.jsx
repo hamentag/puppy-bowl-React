@@ -21,6 +21,8 @@ export default function PlayerListName({ player, numPlayers,setNumPlayers }) {
   return (
     <div className="player-presentation">
       <h3>{player.name}</h3>
+      <img className="avatar" src={player.imageUrl} alt={'image of ' + player.name} />
+      <div className="buttons">
       <button
         onClick={() => {
           navigate(`/${player.id}`);
@@ -29,6 +31,7 @@ export default function PlayerListName({ player, numPlayers,setNumPlayers }) {
         See Details
       </button>
       <button onClick={handleDelete}>Delete Player</button>
+      </div>
     </div>
   );
 }
