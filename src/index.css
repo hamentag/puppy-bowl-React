@@ -15,13 +15,18 @@
   -webkit-text-size-adjust: 100%;
 }
 
+ul{
+  list-style: none;
+  padding: 0;
+}
+
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #1b2195d3;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #282ea878;
 }
 
 body {
@@ -31,15 +36,21 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
+h4{
+  margin-bottom: 5px;
+}
 .App{
   background-color: rgba(205, 205, 205, 0.331);
-  padding: 1.5rem;
+  padding: 0.5rem 0; 
   width: 780px;
 }
 
 h1 {
   font-size: 1.8em;
   line-height: 1.1;
+}
+h3{
+  margin: 0;
 }
 
 button {
@@ -67,13 +78,13 @@ button:focus-visible {
 }
 
 .nav-bar a{
-  width: 45%;
-  margin-bottom: 1rem;
+  width: 45%; 
   border-radius: 5px;
   padding: 5px;
   display: flex;
   justify-content: space-evenly;
-  background-color: rgba(167, 225, 242, 0.637);
+  background-color: rgba(184, 184, 185, 0.53);
+  border: 1.5px solid rgba(198, 198, 198, 0.1);
 }
 .nav-bar a:hover{
   border: 1.5px solid rgba(60, 70, 155, 0.34);
@@ -87,6 +98,40 @@ button:focus-visible {
 .error{
   color: red;
 }
+
+
+#plus{
+  margin: 5px 10px;
+  padding: 0 10px;
+}
+
+#plus:hover{
+  background-color: rgba(161, 220, 168, 0.646);
+  cursor: pointer;
+  border-radius: 5px;
+}
+#plus span{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.search-block input{
+  padding: 5px;
+  width: 250px;
+  border: 1px solid rgba(128, 128, 128, 0.619);
+  border-radius: 3px;
+}
+.search-block svg{
+  fill: rgba(83, 83, 83, 0.628);
+}
+.search-block label{
+  display: flex;
+  gap:5px;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+
 form{ 
   padding: 0 10px; 
 }
@@ -129,14 +174,19 @@ select{
 
 .player-presentation{
   flex: 0 0 calc(25% - 20px);
-  background-color: rgba(206, 232, 240, 0.694);
+  background-color: rgba(255, 255, 255, 0.694);
   border: 1.2px solid rgba(170, 170, 170, 0.47);
   padding: 5px;
   border-radius: 5px;
 }
 .player-presentation button{
   margin: 0 0.2rem;
+  background-color: rgba(205, 205, 205, 0.475);
   border: 1px solid rgba(127, 127, 127, 0.598);
+}
+.player-presentation button:hover{ 
+  background-color: rgba(222, 222, 222, 0.283);
+  border: 1px solid rgba(155, 155, 155, 0.737);
 }
 .avatar{
   width: 75px;
@@ -144,8 +194,8 @@ select{
   border-radius: 50%;
 }
 .new-player{
-  padding: 0  10px 10px 10px;
-  margin-bottom: 10px;
+  padding: 0 10px 20px 10px;
+  margin: 10px 20px;
   background-color: rgba(208, 242, 228, 0.505);
   border: 1.5px solid rgba(179, 179, 179, 0.534);
   border-radius: 5px;
@@ -155,10 +205,64 @@ select{
   margin-left: auto;
 }
 #cancel{
-  
   font-size: 18px;
   font-weight: bold;
+  margin: 10px 5px;
+  padding-bottom: 10px;
+  border-radius: 50%;
+  width: 30px;
+  height: 20px;
+  align-self: center;
+  justify-self: center;
+  cursor: pointer;
 }
+#cancel:hover{
+  background-color: rgba(209, 146, 146, 0.683);
+}
+
+figcaption{
+  width: fit-content;
+  margin: 5px auto;
+}
+
+.single-player-image{
+  height: 240px;
+  border-radius: 5px;
+}
+.delete-btn{
+  background-color: rgba(205, 109, 109, 0.285);
+}
+td, th{
+  width: 220px;
+}
+
+.team{
+  background-color: white;
+  display: flex;
+  gap: 15px;
+  overflow: auto;
+  padding: 10px;
+  margin: 0 15px;
+}
+.on-field, .on-bench{
+  flex: 0 0 auto;
+  border: 1px solid #b5b5b5;
+  padding: 0 5px;
+  border-radius: 5px;
+}
+.on-bench{
+  background-color: rgba(226, 157, 143, 0.564);   
+}
+.on-field{
+  background-color: rgba(178, 227, 227, 0.562); 
+}
+.team img{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+
 
 
 @media (prefers-color-scheme: light) {

@@ -1,33 +1,18 @@
 
-import { useState, useEffect } from "react";
-import { fetchAllPlayers } from "../api";
+import { useState } from "react";
+
 import PlayerListName from "./PlayerListName";
 import CreatePlayerForm from "./CreatePlayerForm";
 
-export default function AllPlayers() {
-  const [players, setPlayers] = useState([]);
+export default function AllPlayers({players, setPlayers, numPlayers, setNumPlayers}) {
+  
   const [error, setError] = useState(null);
   const [searchParam, setSearchParam] = useState("");
-  const [numPlayers, setNumPlayers] = useState(0);
-  const [addNewPlayer, setAddNewPlayer] = useState(false)
+  const [addNewPlayer, setAddNewPlayer] = useState(false);
 
-  useEffect(() => {
-    async function getAllPlayers() {
-      const APIResponse = await fetchAllPlayers();
-      if (APIResponse.success) {
-        setPlayers(APIResponse.data.players);
 
-        console.log(APIResponse.data.players.length);
-        setNumPlayers(APIResponse.data.players.length);
-      } else {
-        setError(APIResponse.error.message);
-      }
-    }
-    getAllPlayers();
-  }, [numPlayers]); // numPlayers
-
-  const playersToDisplay = searchParam
-    ? players.filter((player) =>
+  const playersToDisplay = searchParam? 
+    players.filter((player) =>
         player.name.toLowerCase().includes(searchParam)
       )
     : players;
@@ -40,15 +25,18 @@ export default function AllPlayers() {
         <div className="add-new-player" onClick={()=>{setAddNewPlayer(status=>!status)}}>
           {addNewPlayer? <div id="cancel"> &times;</div>
             :  
-            <div>Add new player <span id="arrowDown"> &#9660;</span></div>}
+            <div id="plus"><span> &#43;</span> New player</div>}
         </div>
         {
           addNewPlayer && <CreatePlayerForm players={players} setPlayers={setPlayers} />
         }
       </div>
-      <div>
+      <div className="search-block">
         <label>
-          Search:{" "}
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 28 24">
+            <path d="M21.71 20.29l-5.3-5.3A7.93 7.93 0 0 0 18 10c0-4.41-3.59-8-8-8S2 5.59 2 10s3.59 8 8 8a7.93 7.93 0 0 0 5.59-2.29l5.3 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM4 10a6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6 6 6 0 0 1-6-6z"/>
+          </svg>
+          {" "}
           <input
             type="text"
             placeholder="search"

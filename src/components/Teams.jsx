@@ -1,43 +1,54 @@
 
-import { useState, useEffect } from "react";
-import { fetchAllPlayers } from "../api";
-import PlayerListName from "./PlayerListName";
-import CreatePlayerForm from "./CreatePlayerForm";
+import { useState, useEffect } from "react"; 
+export default function Teams({players}) {
+
+  const [teams, setTeams] = useState([])
+
+useEffect(()=>{
+  function groupByTeamId() {
+    const grouped = {};
+    
+    // Group players by teamId
+    players.forEach(player => {
+        if (!grouped[player.teamId]) {
+          grouped[player.teamId] = [];
+        }
+        grouped[player.teamId].push(player);
+    });
+    
+    // make grouped players as teams
+    setTeams(Object.values(grouped))
+  }
+  groupByTeamId();
+}, [players])
 
 
-export default function Teams() {
-    const [players, setPlayers] = useState([]);
-    const [error, setError] = useState(null);
-
-useEffect(() => {
-    async function getAllPlayers() {
-      const APIResponse = await fetchAllPlayers();
-      if (APIResponse.success) {
-        setPlayers(APIResponse.data.players);
-      } else {
-        setError(APIResponse.error.message);
-      }
-    }
-    getAllPlayers();
-  }, []);
-
-const teamIds = [...new Set(players.map(pl => {  
-                return pl.teamId
-            }))]
-            .sort((a, b) => a - b);
-
-console.log(teamIds)
-// Display players of each team ...
-
-
-
-  return(
+  return(     
     <div>
-        <h3>Teams</h3>
-        {teamIds.map((teamId, indx) => {    
-            return teamId? <p key={indx}>Team {teamId}</p>
-                :  <p key={indx}>Unassigned Team</p>
-        })}
+      <ul>
+      {
+        teams.map((team, tIndex) =>{
+          return(
+            <li key={tIndex}>
+              <h4>Team {tIndex + 1}</h4>
+              <ul className="team">
+              {
+                team.map((player, pIndex) =>{
+                  return(
+                    <li key={pIndex} className={`on-${player.status}`}> 
+                      <div style={{fontWeight:"bold"}}>{player.name} </div>
+                      <div>({player.status})</div>
+                      <img src={player.imageUrl} alt={`photo player ${player.id}`} />              
+                    </li>
+                  )
+                })
+              }
+              </ul>
+            </li>
+          )
+        })
+      }
+      </ul>
     </div>
   )
 }

@@ -20,17 +20,33 @@ export default function PlayerCard({ player }) {
       <figure>
         <img
           src={player.imageUrl}
-          alt="A pic of a furry player"
-          height={300}
+          alt="pic of a player"
+          className="single-player-image"
         />
         <figcaption>
-          <p>Name: {player.name}</p>
-          <p>Breed: {player.breed}</p>
-          <p>Team ID: {player.teamId}</p>
-          <p>img: {player.imageUrl}</p>
+          <table border="1">
+            <tbody>
+              <tr>
+                <th scope="row">Name</th>
+                <td>{player.name}</td>
+              </tr>
+              <tr>
+                <th scope="row">Breed</th>
+                <td>{player.breed}</td>
+              </tr>
+              <tr>
+                <th scope="row">Team</th>
+                <td>{player.teamId}</td>
+              </tr>
+              <tr>
+                <th scope="row">Status</th>
+                <td>{player.status}</td>
+              </tr>
+            </tbody>
+          </table>
         </figcaption>
       </figure>
-      <button onClick={handleDelete}>Delete Player</button>
+      <button onClick={handleDelete} className="delete-btn">Delete Player</button>
     </div>
   );
 }

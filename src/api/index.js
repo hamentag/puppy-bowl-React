@@ -12,6 +12,21 @@ export async function fetchAllPlayers() {
   }
 }
 
+//
+
+export async function fetchTeams() {
+  try {
+    const response = await fetch( 
+      `https://fsa-puppy-bowl.herokuapp.com/api/${COHORT}/teams`
+    );
+    const result = await response.json();
+    console.log(result);
+  } catch (err) {
+    console.error(err);
+  }
+}
+//
+
 export async function fetchSinglePlayer(id) {
   try {
     const response = await fetch(`${baseUrl}/players/${id}`);
@@ -21,17 +36,6 @@ export async function fetchSinglePlayer(id) {
     console.error(error);
   }
 }
-
-//
-// export async function fetchTeams() {
-//   try {
-//     const response = await fetch(`${baseUrl}/teams`);
-//     const result = await response.json();
-//     return result;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
 
 
 export async function createPlayer(ob) {
