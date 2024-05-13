@@ -1,9 +1,8 @@
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { deletePlayer } from "../api";
 
-export default function PlayerListName({ player, numPlayers,setNumPlayers }) {
+export default function PlayerListName({ player,setNumPlayers }) {
   const navigate = useNavigate();
 
   async function handleDelete() {

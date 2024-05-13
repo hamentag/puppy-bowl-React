@@ -27,8 +27,6 @@ export default function CreatePlayerForm({ players, setPlayers }) {
     if (name !== "" && breed !== "") {
       const APIData = await createPlayer(obj);
       if (APIData.success) {
-        console.log("New Player: ", APIData.data.newPlayer);
-
         // Resetting all players manually
         const newPlayersList = [...players, APIData.data.newPlayer];
         setPlayers(newPlayersList);
@@ -67,7 +65,6 @@ export default function CreatePlayerForm({ players, setPlayers }) {
             />
             {(submitedData.name === '') && <span className="required">Required field</span>}
           </label>
-
 
           <label>Breed*
             <input

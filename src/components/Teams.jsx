@@ -1,27 +1,24 @@
-
 import { useState, useEffect } from "react"; 
 export default function Teams({players}) {
-
-  const [teams, setTeams] = useState([])
-
-useEffect(()=>{
-  function groupByTeamId() {
-    const grouped = {};
-    
-    // Group players by teamId
-    players.forEach(player => {
-        if (!grouped[player.teamId]) {
-          grouped[player.teamId] = [];
-        }
-        grouped[player.teamId].push(player);
-    });
-    
-    // make grouped players as teams
-    setTeams(Object.values(grouped))
-  }
+  const [teams, setTeams] = useState([]);
+  
+  useEffect(()=>{
+    function groupByTeamId() {
+      const grouped = {};
+      
+      // Group players by teamId
+      players.forEach(player => {
+          if (!grouped[player.teamId]) {
+            grouped[player.teamId] = [];
+          }
+          grouped[player.teamId].push(player);
+      });
+      
+      // make grouped players as teams
+      setTeams(Object.values(grouped))
+    }
   groupByTeamId();
 }, [players])
-
 
   return(     
     <div>

@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { deletePlayer } from "../api";
@@ -9,7 +8,6 @@ export default function PlayerCard({ player }) {
   async function handleDelete() {
     try {
       const result = await deletePlayer(player.id);
-      console.log(result);
       navigate("/");
     } catch (error) {
       console.error(error);

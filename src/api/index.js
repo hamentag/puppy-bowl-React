@@ -1,7 +1,6 @@
 
-const COHORT = "2308-ACC-PT-WEB-PT-A";
-const baseUrl = `https://fsa-puppy-bowl.herokuapp.com/api/${COHORT}`;
-
+const baseUrl = 'https://fsa-puppy-bowl.herokuapp.com/api/2308-ACC-PT-WEB-PT-A';
+//
 export async function fetchAllPlayers() {
   try {
     const response = await fetch(`${baseUrl}/players`);
@@ -13,20 +12,18 @@ export async function fetchAllPlayers() {
 }
 
 //
-
 export async function fetchTeams() {
   try {
     const response = await fetch( 
       `https://fsa-puppy-bowl.herokuapp.com/api/${COHORT}/teams`
     );
     const result = await response.json();
-    console.log(result);
   } catch (err) {
     console.error(err);
   }
 }
-//
 
+//
 export async function fetchSinglePlayer(id) {
   try {
     const response = await fetch(`${baseUrl}/players/${id}`);
@@ -37,9 +34,8 @@ export async function fetchSinglePlayer(id) {
   }
 }
 
-
+//
 export async function createPlayer(ob) {
-  
   try {
     const response = await fetch(`${baseUrl}/players`, {
       method: "POST",
@@ -56,24 +52,6 @@ export async function createPlayer(ob) {
 }
 
 //
-// export async function createTeam(name) {
-//   try {
-//     const response = await fetch(`${baseUrl}/teams`, {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json"
-//       },
-//       body: JSON.stringify({
-//         name
-//       })
-//     });
-//     const result = await response.json();
-//     return result;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
 export async function deletePlayer(id) {
   try {
     const response = await fetch(`${baseUrl}/players/${id}`, {
@@ -85,4 +63,3 @@ export async function deletePlayer(id) {
     console.error(error);
   }
 }
-
