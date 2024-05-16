@@ -90,6 +90,10 @@ header h1{
   font-weight: 500;
   text-decoration: inherit;
   padding: 0 3px;
+  color: navy; 
+}
+.nav-bar a:visited {
+  color: navy; 
 }
 .nav-bar a:hover{
   color: #282ea878;
