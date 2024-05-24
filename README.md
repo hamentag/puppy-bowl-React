@@ -1,11 +1,12 @@
-# Puppy Bowl Mini-Game 
+# Puppy Bowl Mini-Game
+🔗 [GitHub Repository](https://github.com/hamentag/puppy-bowl-React)    
+🔗 [API Documentation](https://fsa-puppy-bowl.herokuapp.com/api/)   
+🔗 [Deployment Website](https://hamentag-puppy-bowls.netlify.app/)  
+*****************
+#### Summary
+This project contains the codebase for a Puppy Bowl mini-game. The system allows users to add new puppy players, view all current participants, view details of individual players, and remove players from the roster. The front-end is implemented using React JavaScript, with data manipulation and API interaction for CRUD operations.
 
-[Puppy Bowl API Documentation](https://fsa-puppy-bowl.herokuapp.com/api/)
-
-* Summary
-This project contains the codebase for a Puppy Bowl mini-game. The system allows users to add new puppy players, view all current participants, view details of individual players, and remove players from the roster. The front-end is implemented using HTML, CSS, and JavaScript, with data manipulation and API interaction for CRUD operations.
-
-# Features:
+#### Functionality Features
 * Front-end Features:
     - HTML Front-end Features
         A full HTML document with two blocks of divs for dynamic content rendering.
